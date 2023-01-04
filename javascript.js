@@ -32,6 +32,10 @@ let operator = '';
 let justEvaluated = false;
 let secondNumberExists = false;
 
+document.ondblclick = function(e) {
+    e.preventDefault();
+}
+
 let numberButtons = document.querySelectorAll('.number-button');
 numberButtons.forEach(btn => btn.addEventListener('click', (e) => pressNumber(e)));
 

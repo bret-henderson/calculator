@@ -11,7 +11,7 @@ body {
 #calc-whole {
     display: flex;
     flex-direction: column;
-    margin-top: 128px;
+    margin-top: 112;
     padding: 16px 0px;
     width:344px;
     gap: 8px;
@@ -43,6 +43,7 @@ button {
     aspect-ratio: 1/1;
     font-size: 1em;
     border-radius: 0.5em;
+    color: black;
 }
 
 .operator-button, .equals-button {

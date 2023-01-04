@@ -25,15 +25,16 @@ body {
     font-size: 2em;
     justify-content: flex-end;
     padding-right: 16px;
-    /* height: max-content; */
 }
 
 .number-button, .operator-button, .equals-button {
     width: 72px;
     aspect-ratio: 1/1;
+    font-size: 1em;
 }
 
 .rectangle-button {
     width: 152px;
     height: 72px;
+    font-size: 1em;
 }

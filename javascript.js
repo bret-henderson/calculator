@@ -61,7 +61,6 @@ document.addEventListener('keydown', (e) => {
     e.target.blur()
 });
 
-
 function evaluate() {
     if (!justEvaluated) {
         secondNumber = Number(displayValue.split(' ')[2]);
@@ -79,12 +78,16 @@ function pressEquals() {
 }
 
 function pressDelete() {
-    if (Number(displayValue.split(' ')[2]) !== '' && Number(displayValue.split(' ')[2]) !== '0.')
+    if (displayValue.split(' ')[2] !== '' && displayValue.split(' ')[2] !== '0.')
         secondNumberExists = true;
+
     if (displayValue.length === 1)
         output.textContent = 0;
-    else if (displayValue != '0' && !justEvaluated && displayValue.slice(-1) !== ' ')
+    else if (displayValue.split(' ')[2] === '0.')
+        output.textContent = output.textContent.slice(0,-2);
+    else if (displayValue !== '0' && !justEvaluated && displayValue.slice(-1) !== ' ')
         output.textContent = output.textContent.slice(0, -1);
+
     
     displayValue = output.textContent;
 }
@@ -101,7 +104,6 @@ function pressNumber(e) {
     numberText = e.key
     
     if (justEvaluated && !displayValue.includes(' ')) {
-        console.log('no space - should start new number')
         justEvaluated = false;
         secondNumberExists = false;
         output.textContent = numberText;

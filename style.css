@@ -1,4 +1,5 @@
 body {
+    touch-action: manipulation;
     display: flex;
     justify-content: center;
 }

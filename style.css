@@ -11,7 +11,7 @@ body {
 #calc-whole {
     display: flex;
     flex-direction: column;
-    margin-top: 112;
+    margin-top: 112px;
     padding: 16px 0px;
     width:344px;
     gap: 8px;

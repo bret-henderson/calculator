@@ -21,7 +21,7 @@ const operate = (operator, a, b) => {
         result = multiply(a, b);
     if (operator == '/')
         result = divide(a, b);
-    return Number(result.toFixed(3));
+    return Number(result.toFixed(5));
 };
 
 let output = document.querySelector('#output');
@@ -33,67 +33,36 @@ let justEvaluated = false;
 let secondNumberExists = false;
 
 let numberButtons = document.querySelectorAll('.number-button');
-numberButtons.forEach(btn => btn.addEventListener('click', (e) => {
-    if (justEvaluated && !displayValue.includes(' ')) {
-        justEvaluated = false;
-        secondNumberExists = false;
-        output.textContent = e.target.innerText;
-        if (e.target.innerText === '.')
-            output.textContent = 0 + e.target.innerText;
-        displayValue = output.textContent;
-        return;
-    }
-
-    justEvaluated = false;
-    if (displayValue == '0' && e.target.innerText === '.')
-        output.textContent = displayValue + e.target.innerText;
-    else if (displayValue.split(' ')[2] === '' && e.target.innerText === '.')
-        output.textContent = displayValue + '0' + e.target.innerText;
-    else if (displayValue == '0')
-        output.textContent = e.target.innerText;
-    else if (!displayValue.includes(' ') && displayValue.includes('.') && e.target.innerText === '.')
-        ;
-    else if (displayValue.includes(' ') && displayValue.split(' ')[2].includes('.') && e.target.innerText === '.')
-        ;
-    else
-        output.textContent = output.textContent + e.target.innerText;
-    displayValue = output.textContent;
-    if (displayValue.split(' ')[2] !== undefined && displayValue.split(' ')[2] !== '' && displayValue.split(' ')[2] !== '0.')
-        secondNumberExists = true;
-}));
+numberButtons.forEach(btn => btn.addEventListener('click', (e) => pressNumber(e)));
 
 let operatorButtons = document.querySelectorAll('.operator-button');
-operatorButtons.forEach(btn => btn.addEventListener('click', (e) => {
-    justEvaluated = false;
-    secondNumberExists = false;
-    // if (!displayValue.endsWith(' ') && !displayValue.endsWith('.'))
-    //     evaluate();
-    if (!displayValue.endsWith(' ') && !displayValue.endsWith('.') && (displayValue.includes(' / ') || displayValue.includes(' x ') || displayValue.includes(' - ') || displayValue.includes(' + '))) {
-        console.log('evaluated')
-        evaluate();
-    }
-    if (!displayValue.includes(' ')) {
-        operator = e.target.innerText;
-        output.textContent = displayValue + ' ' + operator + ' ';
-        firstNumber = Number(displayValue);
-    }
-    else if (displayValue.endsWith(' ')) {
-        let existingOperator = operator;
-        operator = e.target.innerText;
-        output.textContent = output.textContent.replace(existingOperator, operator);
-        firstNumber = Number(displayValue.split(' ')[0]);
-    }
-    displayValue = output.textContent;
-}));
+operatorButtons.forEach(btn => btn.addEventListener('click', (e) => pressOperator(e)));
 
 let equalsButton = document.querySelector('.equals-button');
-equalsButton.addEventListener('click', (e) => {
-    if (operator !== '' && secondNumberExists)
-        evaluate();
+equalsButton.addEventListener('click', () => pressEquals());
+
+let deleteButton = document.querySelector('#delete');
+deleteButton.addEventListener('click', () => pressDelete());
+
+let clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', () => pressClear());
+
+document.addEventListener('keydown', (e) => {
+    // console.log(e.key)
+    if(e.key === 'Enter')
+        pressEquals()
+    if(e.key === 'Backspace')
+        pressDelete()
+    if(e.key.match(/[.0123456789]/) !== null)
+        pressNumber(e)
+    if(e.key.match(/[/*\-+]/) !== null)
+        pressOperator(e)
+
+    e.target.blur()
 });
 
+
 function evaluate() {
-    console.log('evaluated')
     if (!justEvaluated) {
         secondNumber = Number(displayValue.split(' ')[2]);
         secondNumberExists = true;
@@ -104,21 +73,86 @@ function evaluate() {
     firstNumber = Number(displayValue);
 }
 
-let clearButton = document.querySelector('#clear');
-clearButton.addEventListener('click', (e) => {
-    secondNumberExists = false;
-    output.textContent = 0;
-    displayValue = output.textContent;
-});
+function pressEquals() {
+    if (operator !== '' && secondNumberExists)
+        evaluate();
+}
 
-let deleteButton = document.querySelector('#delete');
-deleteButton.addEventListener('click', (e) => {
+function pressDelete() {
     if (Number(displayValue.split(' ')[2]) !== '' && Number(displayValue.split(' ')[2]) !== '0.')
         secondNumberExists = true;
     if (displayValue.length === 1)
         output.textContent = 0;
     else if (displayValue != '0' && !justEvaluated && displayValue.slice(-1) !== ' ')
         output.textContent = output.textContent.slice(0, -1);
-
+    
     displayValue = output.textContent;
-});
+}
+
+function pressClear() {
+    secondNumberExists = false;
+    output.textContent = 0;
+    displayValue = output.textContent;
+}
+
+function pressNumber(e) {
+    let numberText = e.target.innerText
+    if (e.key !== undefined)
+    numberText = e.key
+    
+    if (justEvaluated && !displayValue.includes(' ')) {
+        console.log('no space - should start new number')
+        justEvaluated = false;
+        secondNumberExists = false;
+        output.textContent = numberText;
+        if (numberText === '.')
+        output.textContent = 0 + numberText;
+        displayValue = output.textContent;
+        return;
+    }
+    justEvaluated = false;
+    
+    if (displayValue == '0' && numberText === '.')
+        output.textContent = displayValue + numberText;
+    else if (displayValue.split(' ')[2] === '' && numberText === '.')
+        output.textContent = displayValue + '0' + numberText;
+    else if (displayValue == '0')
+        output.textContent = numberText;
+    else if (!displayValue.includes(' ') && displayValue.includes('.') && numberText === '.')
+        ;
+    else if (displayValue.includes(' ') && displayValue.split(' ')[2].includes('.') && numberText === '.')
+        ;
+    else
+        output.textContent = output.textContent + numberText;
+    displayValue = output.textContent;
+    if (displayValue.split(' ')[2] !== undefined && displayValue.split(' ')[2] !== '' && displayValue.split(' ')[2] !== '0.')
+        secondNumberExists = true;
+}
+
+function pressOperator(e) {
+    justEvaluated = false;
+    secondNumberExists = false;
+
+    let operatorText = e.target.innerText
+    if (e.key !== undefined)
+        operatorText = e.key
+    if (operatorText === '*')
+        operatorText = 'x'
+
+    if (!displayValue.endsWith(' ') && !displayValue.endsWith('.') && (displayValue.includes(' / ') || displayValue.includes(' x ') || displayValue.includes(' - ') || displayValue.includes(' + '))) {
+        console.log('evaluated')
+        evaluate();
+    }
+    if (!displayValue.includes(' ')) {
+        operator = operatorText;
+        output.textContent = displayValue + ' ' + operator + ' ';
+        firstNumber = Number(displayValue);
+    }
+    else if (displayValue.endsWith(' ')) {
+        let existingOperator = operator;
+        operator = operatorText;
+        output.textContent = output.textContent.replace(existingOperator, operator);
+        firstNumber = Number(displayValue.split(' ')[0]);
+    }
+    displayValue = output.textContent;
+}

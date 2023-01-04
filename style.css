@@ -7,8 +7,12 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 128px;
-    width:328px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width:344px;
     gap: 8px;
+    border: 2px solid black;
+    border-radius: 1.5em;
 }
 
 .row {
@@ -20,7 +24,8 @@ body {
 #output {
     font-size: 2em;
     justify-content: flex-end;
-    padding-right: 8px;
+    padding-right: 16px;
+    /* height: max-content; */
 }
 
 .number-button, .operator-button, .equals-button {

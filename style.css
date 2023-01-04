@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#calc-whole {
+    display: flex;
+    flex-direction: column;
+    margin-top: 128px;
+    width:240px;
+    gap: 8px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 8px; 
+}
+
+#output {
+    justify-content: flex-end;
+    padding-right: 8px;
+}
+
+.square-button {
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+
+.rectangle-button {
+    width: 108px;
+    height: 50px;
+}

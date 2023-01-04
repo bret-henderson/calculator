@@ -88,7 +88,6 @@ function pressDelete() {
     else if (displayValue !== '0' && !justEvaluated && displayValue.slice(-1) !== ' ')
         output.textContent = output.textContent.slice(0, -1);
 
-    
     displayValue = output.textContent;
 }
 
@@ -145,7 +144,12 @@ function pressOperator(e) {
         console.log('evaluated')
         evaluate();
     }
-    if (!displayValue.includes(' ')) {
+    if (displayValue.endsWith('.') && !displayValue.includes(' ')){
+        operator = operatorText;
+        output.textContent = displayValue + '0' + ' ' + operator + ' ';
+        firstNumber = Number(displayValue);
+    }
+    else if (!displayValue.includes(' ')) {
         operator = operatorText;
         output.textContent = displayValue + ' ' + operator + ' ';
         firstNumber = Number(displayValue);

@@ -39,6 +39,7 @@ body {
 }
 
 button {
+    text-align: center;
     width: 72px;
     aspect-ratio: 1/1;
     font-size: 1em;

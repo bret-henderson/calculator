@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 96px;
-    padding: 16px 0px;
+    padding: 32px 0px;
     width:360px;
     gap: 8px;
     border: 2px solid black;
@@ -47,7 +47,6 @@ body {
 }
 
 button {
-    /* text-align: center; */
     width: 72px;
     aspect-ratio: 1/1;
     font-size: 1em;
@@ -90,4 +89,8 @@ button {
     gap: 8px;
     margin: 0px;
     padding: 0px;
+}
+
+#right-side {
+    flex: 1;
 }

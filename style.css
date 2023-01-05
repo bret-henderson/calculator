@@ -76,10 +76,10 @@ button {
     height: 152px;
 } */
 
-/* #zero {
+#zero {
     height: 72px;
     width: 152px;
-} */
+}
 
 #left-side {
     display: flex;

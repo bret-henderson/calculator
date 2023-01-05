@@ -108,7 +108,7 @@ function pressNumber(e) {
         output.textContent = numberText;
         if (numberText === '.')
         output.textContent = 0 + numberText;
-        displayValue = output.textContent;
+            displayValue = output.textContent;
         return;
     }
     justEvaluated = false;

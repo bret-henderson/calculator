@@ -20,7 +20,7 @@ body {
     flex-direction: column;
     margin-top: 96px;
     margin-bottom: 16px;
-    padding-top: 16px;
+    padding: 16px;
     width:344px;
     gap: 8px;
     border: 2px solid black;
@@ -30,16 +30,15 @@ body {
 
 .row {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 8px;
+    /* margin: auto; */
 }
 
 #output {
     font-size: 2em;
     justify-content: flex-end;
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     padding: 16px;
     border: 1px solid black;
     border-radius: 0.25em;
@@ -70,18 +69,17 @@ button {
 #bottom-two-rows {
     display: flex;
     gap: 8px;
-    margin: auto;
-    padding-bottom: 16px;
+    margin: 0;
 }
 
 /* #equals {
     height: 152px;
 } */
 
-#zero {
+/* #zero {
     height: 72px;
     width: 152px;
-}
+} */
 
 #left-side {
     display: flex;

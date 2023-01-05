@@ -1,13 +1,13 @@
-* {
-    touch-action: manipulation;
-}
-
 html {
     box-sizing: border-box;
   }
   *, *::before, *::after {
     box-sizing: inherit;
   }  
+
+* {
+    touch-action: manipulation;
+}
 
 body {
     display: flex;
@@ -74,7 +74,7 @@ button {
 }
 
 #equals {
-    height: 100%;
+    height: 152px;
 }
 
 #zero {
@@ -86,5 +86,5 @@ button {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin: auto;
+    margin: 0px;
 }

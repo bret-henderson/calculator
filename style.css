@@ -69,6 +69,7 @@ button {
 }
 
 #bottom-two-rows {
+    display: -webkit-flex;
     display: flex;
     flex: 1;
     gap: 8px;

@@ -20,8 +20,10 @@ body {
     flex-direction: column;
     margin-top: 96px;
     margin-bottom: 16px;
+    margin-left: 0px;
+    margin-right: 0px;
     padding: 16px;
-    width:360px;
+    width:348px;
     gap: 8px;
     border: 2px solid black;
     border-radius: 1.5em;
@@ -30,9 +32,10 @@ body {
 
 .row {
     display: flex;
+    /* flex: content; */
     justify-content: flex-start;
     gap: 8px;
-    /* margin: auto; */
+    height: 72px;
 }
 
 #output {
@@ -46,12 +49,13 @@ body {
 }
 
 button {
-    width: 72px;
+    height: 100%;
     aspect-ratio: 1/1;
     font-size: 1em;
     border-radius: 0.5em;
     color: black;
     padding: 0px;
+    margin: 0;
 }
 
 .operator-button, .equals-button {
@@ -72,18 +76,21 @@ button {
     margin: 0;
 }
 
-/* #equals {
-    height: 152px;
-} */
+#equals {
+    width: 100%;
+}
 
 #zero {
-    margin: 0;
-    height: 64px;
-    width: 152px;
+    width: 100%;
 }
 
 #left-side {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+#right-side {
+    display: flex;
+    flex: 1;
 }

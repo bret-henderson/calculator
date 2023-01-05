@@ -20,8 +20,6 @@ body {
     flex-direction: column;
     margin-top: 96px;
     margin-bottom: 16px;
-    margin-left: 0px;
-    margin-right: 0px;
     padding: 16px;
     width:348px;
     gap: 8px;
@@ -75,10 +73,6 @@ button {
     gap: 8px;
 }
 
-#equals {
-    width: 72px;
-}
-
 #zero {
     width: 100%;
 }
@@ -87,8 +81,4 @@ button {
     display: flex;
     flex-direction: column;
     gap: 8px;
-}
-
-#right-side {
-    display: flex;
 }

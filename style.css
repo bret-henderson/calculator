@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     margin-top: 96px;
     padding: 32px 0px;
-    width:360px;
+    width:344px;
     gap: 8px;
     border: 2px solid black;
     border-radius: 1.5em;
@@ -71,7 +71,7 @@ button {
     display: flex;
     gap: 8px;
     margin: auto;
-    padding: 0px;
+    padding-bottom: 16px;
 }
 
 #equals {
@@ -92,5 +92,5 @@ button {
 }
 
 #right-side {
-    flex: 1;
+    display: flex;
 }

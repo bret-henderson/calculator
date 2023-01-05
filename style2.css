@@ -1,0 +1,122 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 versions
+*/
+
+html {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  *, *::before, *::after {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+  }  
+
+* {
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+}
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #f0f0f0;
+}
+
+#calc-whole {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 96px;
+    margin-bottom: 16px;
+    padding-top: 16px;
+    width:344px;
+    gap: 8px;
+    border: 2px solid black;
+    border-radius: 1.5em;
+    background-color: #999999;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 8px;
+}
+
+#output {
+    font-size: 2em;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    background-color: #dddddd;
+}
+
+button {
+    width: 72px;
+    aspect-ratio: 1/1;
+    font-size: 1em;
+    border-radius: 0.5em;
+    color: black;
+    padding: 0px;
+}
+
+.operator-button, .equals-button {
+    background-color: #B2D1E6;
+}
+
+.number-button{
+    background-color: #D8E8F3;
+}
+
+.action-button{
+    background-color: #8DB9D8;
+}
+
+#bottom-two-rows {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 8px;
+    margin: auto;
+    padding-bottom: 16px;
+}
+
+#equals {
+    height: 152px;
+}
+
+#zero {
+    height: 72px;
+    width: 152px;
+}
+
+#left-side {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 8px;
+}

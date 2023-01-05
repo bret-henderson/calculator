@@ -73,11 +73,10 @@ button {
 #bottom-two-rows {
     display: flex;
     gap: 8px;
-    margin: 0;
 }
 
 #equals {
-    width: 100%;
+    width: 72px;;
 }
 
 #zero {

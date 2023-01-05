@@ -2,6 +2,13 @@
     touch-action: manipulation;
 }
 
+html {
+    box-sizing: border-box;
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }  
+
 body {
     display: flex;
     justify-content: center;
@@ -63,7 +70,7 @@ button {
 #bottom-two-rows {
     display: flex;
     gap: 8px;
-    padding-left: 16px;
+    margin: auto;
 }
 
 #equals {
@@ -79,4 +86,5 @@ button {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin: auto;
 }

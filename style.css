@@ -71,6 +71,7 @@ button {
     display: flex;
     gap: 8px;
     margin: auto;
+    padding: 0px;
 }
 
 #equals {
@@ -87,4 +88,5 @@ button {
     flex-direction: column;
     gap: 8px;
     margin: 0px;
+    padding: 0px;
 }
